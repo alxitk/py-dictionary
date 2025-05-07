@@ -6,14 +6,14 @@ class Dictionary:
         self.size = 8
         self.table = [None for _ in range(self.size)]
 
-    def __len__(self) -> None:
+    def __len__(self) -> int:
         count = 0
         for i in self.table:
             if i:
                 count += 1
         return count
 
-    def __getitem__(self, key: Any) -> None:
+    def __getitem__(self, key: Any) -> Any:
         index_by_hash = hash(key) % self.size
         while True:
             if self.table[index_by_hash] is None:
